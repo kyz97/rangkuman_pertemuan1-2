@@ -1,14 +1,13 @@
-# rangkuman_pertemuan1-2
 📘 Modul Praktikum Basis Data
 
-Ringkasan Penjelasan Bab 1 & Bab 2
+Ringkasan Bab 1 & Bab 2
 
 
 ---
 
 📌 Pendahuluan
 
-Repository ini berisi rangkuman dua bab awal modul praktikum Basis Data, yaitu:
+Repository ini berisi rangkuman dua bab awal praktikum Basis Data, yaitu:
 
 1. Bab 1 – Konversi ERD ke Skema Relasi
 
@@ -17,240 +16,120 @@ Repository ini berisi rangkuman dua bab awal modul praktikum Basis Data, yaitu:
 
 
 
-Penjelasan disusun agar mudah dipahami mahasiswa yang baru pertama kali belajar database.
+Rangkuman dibuat agar mudah dipahami bagi pemula yang baru belajar database.
 
 
 ---
 
-🧩 BAB 1 – Review Konversi ER Diagram ke Skema Relasi
+🧩 BAB 1 – Konversi ER Diagram ke Skema Relasi
 
-Bab ini membahas bagaimana sebuah sistem digambarkan dalam bentuk diagram (ERD), lalu diubah menjadi tabel yang dapat dibuat di MySQL.
+Bab ini menjelaskan bagaimana sebuah ERD menggambarkan struktur data dan bagaimana diagram tersebut diubah menjadi tabel relasional di MySQL.
 
 
 ---
 
 🔍 Apa itu Basis Data?
 
-Basis data adalah kumpulan data yang terorganisasi.
-Data disimpan dalam tabel yang berisi baris (record) dan kolom (field).
+Basis data adalah kumpulan data terorganisasi yang disimpan dalam tabel berisi kolom (field) dan baris (record).
+Contoh pada sistem apotek: tabel pasien, obat, pembayaran.
 
-Contoh basis data apotek:
-
-tabel pasien
-
-tabel obat
-
-tabel pembayaran
-
-
-Tujuan basis data → menyimpan data agar mudah dicari, diolah, dan dipelihara.
+Tujuan: data mudah dicari, diolah, dan dijaga konsistensinya.
 
 
 ---
 
-🔍 Apa itu ERD (Entity Relationship Diagram)?
+🔍 Apa itu ERD?
 
-ERD adalah diagram yang menggambarkan struktur data dalam suatu sistem.
-Diagram ini menunjukkan:
+ERD (Entity Relationship Diagram) adalah diagram struktur data yang menunjukkan:
 
-objek apa saja yang ada (entitas)
+entitas (objek),
 
-data apa saja yang dimiliki (atribut)
+atribut (informasi),
 
-dan saling berhubungan atau tidak (relasi)
+dan relasi antar entitas.
 
 
 
 ---
 
-🔍 Komponen-Komponen ERD
+🔍 Komponen ERD (Singkat)
 
-1️⃣ Entitas
+Entitas → objek seperti Pasien, Pegawai, Obat
 
-Entitas adalah objek di dunia nyata yang ingin disimpan datanya.
+Atribut → informasi entitas (Nama, Alamat, dll)
 
-Contoh entitas pada sistem apotek:
+Primary Key → pembeda unik (NIM, KodeObat, IDPegawai)
 
-Pasien
+Relasi → hubungan antar entitas (Pasien–Resep, Pegawai–Pembayaran)
 
-Pegawai
-
-Obat
-
-Resep
-
-Pembayaran
-
-
-2️⃣ Atribut
-
-Atribut adalah informasi yang dimiliki entitas.
-
-Contoh:
-Entitas Pasien punya atribut:
-
-Nama Pasien
-
-Alamat
-
-Tanggal Lahir
-
-No Rekam Medis (sekaligus PK)
-
-
-3️⃣ Primary Key (PK)
-
-Atribut unik yang membedakan setiap data.
-
-Contoh:
-
-KodeObat
-
-NoResep
-
-NIM
-
-IDPegawai
-
-
-4️⃣ Relationship (Relasi)
-
-Relasi adalah hubungan antar entitas.
-
-Contoh relasi:
-
-Pasien memiliki Resep
-
-Pegawai melayani Pembayaran
-
-Resep berisi Obat
-
-
-5️⃣ Kardinalitas
-
-Menjelaskan berapa banyak hubungan terjadi.
-
-Jenis kardinalitas:
-
-1 : 1 → satu data berhubungan dengan satu data lain
-
-1 : N → satu data berhubungan dengan banyak data
-
-N : M → banyak ke banyak
+Kardinalitas → jenis hubungan (1:1, 1:N, N:M)
 
 
 
 ---
 
-🔄 Konversi ERD → Tabel Relasi
-
-Bagian terpenting bab 1 adalah aturan konversi.
-Berikut penjelasan lengkapnya:
+🔄 Konversi ERD → Tabel
 
 1. Strong Entity → Tabel
 
-Entitas biasa langsung menjadi tabel.
 
-Contoh entitas Pegawai → tabel pegawai.
-
-2. Composite Attribute → Dipecah
-
-Atribut majemuk dipecah jadi beberapa kolom.
-
-Contoh:
-Alamat → Jalan, Kota, Provinsi
-
-3. Multivalue Attribute → Tabel Baru
-
-Atribut yang bisa punya banyak nilai tidak boleh disimpan dalam 1 kolom.
-
-Contoh:
-Pasien memiliki banyak nomor telepon → buat tabel telp_pasien.
-
-4. Weak Entity → Mengikuti Induk
-
-Entitas ini tidak bisa berdiri sendiri → PK-nya gabungan.
-
-5. Relasi 1 : 1 → Tambah FK
-
-Salah satu tabel menerima FK dari tabel pasangannya.
-
-6. Relasi 1 : N → FK di sisi N
-
-Sisi “banyak” menyimpan foreign key.
-
-7. Relasi N : M → TABEL BARU
-
-Pasti menjadi tabel baru yang menyimpan:
-
-id entitas pertama
-
-id entitas kedua
-
-atribut relasi (jika ada)
+2. Composite Attribute → Dipecah (Alamat → Jalan, Kota, Provinsi)
 
 
-Contoh: Resep —< DetailObat >— Obat
+3. Multivalue Attribute → Tabel Baru (Pasien punya banyak nomor telepon)
+
+
+4. Weak Entity → PK Gabungan
+
+
+5. Relasi 1:1 → Tambah FK
+
+
+6. Relasi 1:N → FK di sisi N
+
+
+7. Relasi N:M → Tabel Relasi Baru (contoh: Resep–DetailObat–Obat)
+
+
 
 
 ---
 
 🧩 BAB 2 – Pengantar Basis Data & DDL
 
-Bab ini mengenalkan konsep dasar database serta perintah dasar SQL untuk mengelola struktur database.
+Bab ini mengenalkan konsep dasar database, DBMS, MySQL, serta perintah dasar DDL.
 
 
 ---
 
 🔍 Apa itu DBMS?
 
-DBMS (Database Management System) adalah software pengelola basis data.
-Fungsinya:
+DBMS (Database Management System) adalah software untuk mengelola basis data.
 
-menyimpan data
+Contoh: MySQL, MariaDB, PostgreSQL, SQL Server, Oracle.
 
-mengakses data
-
-menjaga keamanan data
-
-mencegah data ganda
-
-menghubungkan tabel
-
-
-Contoh DBMS:
-
-MySQL / MariaDB
-
-PostgreSQL
-
-SQL Server
-
-Oracle
-
+Fungsi: menyimpan data, mengakses data, menghubungkan tabel, mencegah duplikasi.
 
 
 ---
 
 🔍 Apa itu MySQL?
 
-MySQL adalah DBMS open source yang populer karena:
+MySQL adalah DBMS open-source yang:
 
-cepat
+cepat, gratis, stabil,
 
-gratis
+mudah digunakan,
 
-digunakan banyak aplikasi web
-
-mudah dipelajari
+umum dipakai di aplikasi web.
 
 
-Di XAMPP versi baru, MySQL digantikan MariaDB, tapi perintah SQL tetap sama.
+Di XAMPP modern, MySQL digantikan MariaDB, tetapi perintah SQL tetap sama.
 
 
 ---
 
-🔍 Mengakses MySQL di Command Line
+🔍 Mengakses MySQL via Command Line
 
 Masuk:
 
@@ -262,9 +141,9 @@ Keluar:
 
 Lokasi penyimpanan database:
 
-Windows: C:\xampp\mysql\data\
+Windows → C:\xampp\mysql\data\
 
-Linux: /opt/lampp/var/mysql/
+Linux → /opt/lampp/var/mysql/
 
 
 
@@ -272,47 +151,38 @@ Linux: /opt/lampp/var/mysql/
 
 🔍 Apa itu DDL?
 
-DDL (Data Definition Language) adalah perintah SQL untuk membuat dan mengatur struktur database.
-
-Contoh operasi DDL:
-
-Membuat database
-
-Menghapus database
-
-Menggunakan database
-
+DDL (Data Definition Language) adalah perintah SQL untuk mengatur struktur database seperti membuat atau menghapus database dan tabel.
 
 
 ---
 
 🧱 Perintah DDL Dasar
 
-1️⃣ Membuat Database
+Membuat database
 
 CREATE DATABASE nama_database;
 
-2️⃣ Melihat Semua Database
+Melihat semua database
 
 SHOW DATABASES;
 
-3️⃣ Mengaktifkan Database
+Mengaktifkan database
 
 USE nama_database;
 
-4️⃣ Menghapus Database
+Menghapus database
 
 DROP DATABASE nama_database;
+
 
 
 ---
 
 📅 Rangkuman Pertemuan
 
-Pertemuan	Materi	Penjelasan
+Pertemuan	Materi	Penjelasan Singkat
 
-1	Pengenalan Basis Data	Apa itu database, tabel, record, DBMS
-2	ERD & Komponen	Penjelasan entitas, atribut, PK, relasi, kardinalitas
-3	Konversi ERD → Tabel	Aturan strong entity, weak entity, 1:N, N:M
-4	DDL MySQL	Perintah membuat database, memilih, dan menghapus
-
+1	Pengenalan Basis Data	Apa itu database, tabel, DBMS
+2	ERD & Komponen	Entitas, atribut, PK, relasi, kardinalitas
+3	Konversi ERD → Tabel	Aturan strong, weak, 1:N, N:M
+4	DDL MySQL	Perintah dasar CREATE, USE, DROP
