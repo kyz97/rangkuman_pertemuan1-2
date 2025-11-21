@@ -1,4 +1,4 @@
-📘 Modul Praktikum Basis Data
+h📘 Modul Praktikum Basis Data
 
 Ringkasan Bab 1 & Bab 2
 
@@ -178,11 +178,11 @@ DROP DATABASE nama_database;
 
 ---
 
-📅 Rangkuman Pertemuan
+## 📅 Rangkuman Pertemuan
 
-Pertemuan	Materi	Penjelasan Singkat
-
-1	Pengenalan Basis Data	Apa itu database, tabel, DBMS
-2	ERD & Komponen	Entitas, atribut, PK, relasi, kardinalitas
-3	Konversi ERD → Tabel	Aturan strong, weak, 1:N, N:M
-4	DDL MySQL	Perintah dasar CREATE, USE, DROP
+| Pertemuan | Materi                   | Penjelasan Singkat                                     |
+|-----------|--------------------------|---------------------------------------------------------|
+| 1         | Pengenalan Basis Data    | Dasar database, tabel, record, serta fungsi DBMS       |
+| 2         | ERD & Komponen           | Entitas, atribut, PK, relasi, dan kardinalitas         |
+| 3         | Konversi ERD → Tabel     | Aturan strong/weak entity, 1:N, 1:1, dan N:M           |
+| 4         | DDL MySQL                | Perintah dasar CREATE, SHOW, USE, DROP untuk database  |
