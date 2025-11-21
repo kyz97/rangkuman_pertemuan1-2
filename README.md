@@ -1,4 +1,4 @@
-h📘 Modul Praktikum Basis Data
+📘 Modul Praktikum Basis Data
 
 Ringkasan Bab 1 & Bab 2
 
@@ -16,7 +16,7 @@ Repository ini berisi rangkuman dua bab awal praktikum Basis Data, yaitu:
 
 
 
-Rangkuman dibuat agar mudah dipahami bagi pemula yang baru belajar database.
+Rangkuman dibuat agar mudah dipahami oleh pemula yang baru belajar database.
 
 
 ---
@@ -31,22 +31,30 @@ Bab ini menjelaskan bagaimana sebuah ERD menggambarkan struktur data dan bagaima
 🔍 Apa itu Basis Data?
 
 Basis data adalah kumpulan data terorganisasi yang disimpan dalam tabel berisi kolom (field) dan baris (record).
-Contoh pada sistem apotek: tabel pasien, obat, pembayaran.
 
-Tujuan: data mudah dicari, diolah, dan dijaga konsistensinya.
+Contoh pada sistem apotek:
+
+tabel pasien
+
+tabel obat
+
+tabel pembayaran
+
+
+Tujuan: data mudah dicari, diolah, dan dipertahankan konsistensinya.
 
 
 ---
 
 🔍 Apa itu ERD?
 
-ERD (Entity Relationship Diagram) adalah diagram struktur data yang menunjukkan:
+ERD (Entity Relationship Diagram) adalah diagram yang menggambarkan struktur data, berisi:
 
-entitas (objek),
+Entitas (objek)
 
-atribut (informasi),
+Atribut (informasi)
 
-dan relasi antar entitas.
+Relasi antar entitas
 
 
 
@@ -58,11 +66,11 @@ Entitas → objek seperti Pasien, Pegawai, Obat
 
 Atribut → informasi entitas (Nama, Alamat, dll)
 
-Primary Key → pembeda unik (NIM, KodeObat, IDPegawai)
+Primary Key (PK) → pembeda unik (NIM, KodeObat, IDPegawai)
 
 Relasi → hubungan antar entitas (Pasien–Resep, Pegawai–Pembayaran)
 
-Kardinalitas → jenis hubungan (1:1, 1:N, N:M)
+Kardinalitas → bentuk hubungan (1:1, 1:N, N:M)
 
 
 
@@ -88,7 +96,8 @@ Kardinalitas → jenis hubungan (1:1, 1:N, N:M)
 6. Relasi 1:N → FK di sisi N
 
 
-7. Relasi N:M → Tabel Relasi Baru (contoh: Resep–DetailObat–Obat)
+7. Relasi N:M → Tabel Relasi Baru
+Contoh: Resep — DetailObat — Obat
 
 
 
@@ -97,7 +106,7 @@ Kardinalitas → jenis hubungan (1:1, 1:N, N:M)
 
 🧩 BAB 2 – Pengantar Basis Data & DDL
 
-Bab ini mengenalkan konsep dasar database, DBMS, MySQL, serta perintah dasar DDL.
+Bab ini mengenalkan dasar-dasar database, DBMS, MySQL, dan perintah dasar kategori DDL.
 
 
 ---
@@ -106,9 +115,18 @@ Bab ini mengenalkan konsep dasar database, DBMS, MySQL, serta perintah dasar DDL
 
 DBMS (Database Management System) adalah software untuk mengelola basis data.
 
-Contoh: MySQL, MariaDB, PostgreSQL, SQL Server, Oracle.
+Contoh DBMS:
 
-Fungsi: menyimpan data, mengakses data, menghubungkan tabel, mencegah duplikasi.
+MySQL / MariaDB
+
+PostgreSQL
+
+SQL Server
+
+Oracle
+
+
+Fungsi DBMS: menyimpan data, mengakses data, menghubungkan tabel, dan mencegah duplikasi.
 
 
 ---
@@ -117,25 +135,29 @@ Fungsi: menyimpan data, mengakses data, menghubungkan tabel, mencegah duplikasi.
 
 MySQL adalah DBMS open-source yang:
 
-cepat, gratis, stabil,
+cepat
 
-mudah digunakan,
+stabil
 
-umum dipakai di aplikasi web.
+gratis
+
+mudah digunakan
+
+banyak dipakai dalam aplikasi web
 
 
-Di XAMPP modern, MySQL digantikan MariaDB, tetapi perintah SQL tetap sama.
+Di XAMPP modern, MySQL digantikan MariaDB, namun perintah SQL tetap sama.
 
 
 ---
 
 🔍 Mengakses MySQL via Command Line
 
-Masuk:
+Masuk MySQL:
 
 mysql -u root -p
 
-Keluar:
+Keluar MySQL:
 
 \q
 
@@ -151,38 +173,46 @@ Linux → /opt/lampp/var/mysql/
 
 🔍 Apa itu DDL?
 
-DDL (Data Definition Language) adalah perintah SQL untuk mengatur struktur database seperti membuat atau menghapus database dan tabel.
+DDL (Data Definition Language) adalah perintah SQL untuk mengatur struktur database, seperti:
+
+membuat database
+
+menghapus database
+
+memilih database
+
 
 
 ---
 
 🧱 Perintah DDL Dasar
 
-Membuat database
+1️⃣ Membuat database
 
 CREATE DATABASE nama_database;
 
-Melihat semua database
+2️⃣ Melihat semua database
 
 SHOW DATABASES;
 
-Mengaktifkan database
+3️⃣ Mengaktifkan database
 
 USE nama_database;
 
-Menghapus database
+4️⃣ Menghapus database
 
 DROP DATABASE nama_database;
 
 
-
 ---
 
-## 📅 Rangkuman Pertemuan
+📅 Rangkuman Pertemuan
 
-| Pertemuan | Materi                   | Penjelasan Singkat                                     |
-|-----------|--------------------------|---------------------------------------------------------|
-| 1         | Pengenalan Basis Data    | Dasar database, tabel, record, serta fungsi DBMS       |
-| 2         | ERD & Komponen           | Entitas, atribut, PK, relasi, dan kardinalitas         |
-| 3         | Konversi ERD → Tabel     | Aturan strong/weak entity, 1:N, 1:1, dan N:M           |
-| 4         | DDL MySQL                | Perintah dasar CREATE, SHOW, USE, DROP untuk database  |
+Berikut tabel markdown yang rapi untuk README:
+
+| Pertemuan | Materi                 | Penjelasan Singkat                              |
+|-----------|-------------------------|--------------------------------------------------|
+| 1         | Pengenalan Basis Data   | Apa itu database, tabel, record, dan DBMS       |
+| 2         | ERD & Komponen          | Entitas, atribut, PK, relasi, dan kardinalitas  |
+| 3         | Konversi ERD → Tabel    | Aturan strong entity, weak entity, 1:N, N:M     |
+| 4         | DDL MySQL               | CREATE, SHOW, USE, DROP untuk manajemen database|
